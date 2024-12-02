@@ -22,12 +22,12 @@ export default function NewWalkPage() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center font-bold p-28 text-3xl">
+      <div  style={{ marginTop: "-50px" }} className="flex flex-col items-center font-bold p-28 text-3xl mb-24">
         <div className="relative w-full flex items-center justify-center">
           <button
             onClick={handleCancel}
             className="flex items-center space-x-2 text-primary"
-            style={{ marginLeft: "-120px" }}
+            style={{ marginLeft: "-140px" }}
           >
             <Image
               src="/icons/map/back-arrow.png"
@@ -37,7 +37,7 @@ export default function NewWalkPage() {
             />
             <span className="text-lg text-primary font-semibold">Cancel</span>
           </button>
-          <h2 style={{ marginLeft: "80px" }} className="text-lg font-bold">
+          <h2 style={{ marginLeft: "70px" }} className=" font-bold">
             New Walk
           </h2>
         </div>

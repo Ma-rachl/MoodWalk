@@ -15,7 +15,7 @@ export default function MapPage() {
   const router = useRouter();
   const handleNewWalk = () => {
     console.log("new walk...");
-    router.push("/create-new-walk");
+    router.push("/new-walk");
   };
   useEffect(() => {
     const container = L.DomUtil.get("map");

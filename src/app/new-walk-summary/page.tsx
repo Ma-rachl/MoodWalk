@@ -6,11 +6,9 @@ import { useState } from "react";
 
 export default function ConfirmationPage() {
   const router = useRouter();
-
-  const [stops, setStops] = useState(["Stop 1", "Stop 2", "Stop 3"]);
-  const [days, setDays] = useState("1");
-  const [hours, setHours] = useState("2");
-  const [minutes, setMinutes] = useState("30");
+  const [days, setDays] = useState("0");
+  const [hours, setHours] = useState("0");
+  const [minutes, setMinutes] = useState("45");
 
   const handleCancel = () => {
     router.back();
@@ -29,7 +27,7 @@ export default function ConfirmationPage() {
           <button
             onClick={handleCancel}
             className="flex items-center space-x-2 text-primary"
-            style={{ marginLeft: "-120px" }}
+            style={{ marginLeft: "-100px" }}
           >
             <Image
               src="/icons/map/back-arrow.png"
@@ -39,10 +37,12 @@ export default function ConfirmationPage() {
             />
             <span className="text-lg text-primary font-semibold">Cancel</span>
           </button>
-          <h2 style={{ marginLeft: "80px" }} className="text-lg font-bold">
+
+          <h2 style={{ marginLeft: "30px" }} className="text-xl font-bold">
             Confirm Walk Details
           </h2>
         </div>
+        <p className="text-sm text-moodwalk-green">Confirm Itinerary</p>
       </div>
 
       <div className="flex justify-center p-4 ">
@@ -55,48 +55,80 @@ export default function ConfirmationPage() {
         />
       </div>
 
-      <div className="m-5 flex flex-col space-y-8">
-        <h1 className="text-xl font-bold">Your Walk Details</h1>
-        <div className="space-y-4">
-          {/* Stops Information */}
-          <div className="flex flex-col space-y-2">
-            <h2 className="text-lg font-semibold">Stops:</h2>
-            <ul className="list-disc pl-5">
-              {stops.map((stop, index) => (
-                <li key={index} className="text-lg">
-                  {stop}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="m-5 flex flex-col space-y-4">
+        <h1 className="text-xl font-bold">Stops</h1>
 
-          {/* Duration Information */}
-          <div className="flex flex-col space-y-2">
-            <h2 className="text-lg font-semibold">Duration:</h2>
-            <div className="flex space-x-4">
-              <div className="flex items-center space-x-2">
-                <div className="h-12 text-3xl text-center p-4">{days}</div>
-                <span className="text-gray-400">days</span>
+        {/* Stops Information */}
+        <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4">
+            <input
+              className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
+              placeholder="Northeastern University"
+            ></input>
+            <input
+              className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
+              placeholder="New England Aquarium"
+            ></input>
+          </div>
+          <div
+            style={{ marginTop: "50px" }}
+            className="flex flex-col space-y-4"
+          >
+            <h1 className="text-xl font-bold">Walk Duration</h1>
+            <div className="flex justify-between space-x-4">
+              <div className="relative flex items-center space-x-2 w-1/3">
+                <input
+                  type="number"
+                  value={days}
+                  className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
+                  placeholder="0"
+                />
+                <span
+                  className={`absolute right-2 top-3 text-gray-400 ${
+                    days ? "text-moodwalk-green" : ""
+                  }`}
+                >
+                  days
+                </span>
               </div>
-              <div className="flex items-center space-x-2">
-                <div className="h-12 text-3xl text-center p-4">{hours}</div>
-                <span className="text-gray-400">hrs</span>
+              <div className="relative flex items-center space-x-2 w-1/3">
+                <input
+                  type="number"
+                  value={hours}
+                  className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
+                  placeholder="0"
+                />
+                <span
+                  className={`absolute right-2 top-3 text-gray-400 ${
+                    hours ? "text-moodwalk-green" : ""
+                  }`}
+                >
+                  hrs
+                </span>
               </div>
-              <div className="flex items-center space-x-2">
-                <div className="h-12 text-3xl text-center p-4">{minutes}</div>
-                <span className="text-gray-400">mins</span>
+
+              <div className="relative flex items-center space-x-2 w-1/3">
+                <input
+                  type="number"
+                  value={minutes}
+                  className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
+                  placeholder="0"
+                />
+                <span
+                  className={`absolute right-2 top-3 text-gray-400 ${
+                    minutes ? "text-moodwalk-green" : ""
+                  }`}
+                >
+                  mins
+                </span>
               </div>
             </div>
           </div>
         </div>
-
-        <button
-          onClick={handleConfirm}
-          className="bg-moodwalk-green text-white py-3 w-80 rounded-xl z-20"
-        >
-          Confirm Walk
-        </button>
       </div>
+      <button className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-moodwalk-green text-white py-3 w-80 rounded-xl z-20">
+        Start Walk
+      </button>
     </div>
   );
 }
