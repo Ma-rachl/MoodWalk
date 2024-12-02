@@ -1,7 +1,14 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+  const router = useRouter();
+  const handleLogin = () => {
+    console.log("Log in");
+    router.push("/map"); 
+  };
   return (
     <div>
       <div className="flex flex-col items-center justify-center font-bold p-28 text-3xl ">
@@ -30,7 +37,7 @@ export default function Login() {
             ></input>
           </div>
         </div>
-        <button className="h-12 rounded-xl  text-white bg-moodwalk-green">
+        <button className="h-12 rounded-xl  text-white bg-moodwalk-green"  onClick={handleLogin} >
           Log in
         </button>
       </div>

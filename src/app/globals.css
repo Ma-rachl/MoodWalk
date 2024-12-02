@@ -39,6 +39,10 @@ a {
   text-decoration: none;
 }
 
+h2{
+  @apply text-2xl; 
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
