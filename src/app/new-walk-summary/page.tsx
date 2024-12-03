@@ -35,7 +35,7 @@ export default function ConfirmationPage() {
               height={10}
               alt="Back Arrow"
             />
-            <span className="text-lg text-primary font-semibold">Cancel</span>
+            <span className="text-lg text-primary font-semibold">Back</span>
           </button>
 
           <h2 style={{ marginLeft: "30px" }} className="text-xl font-bold">
@@ -65,6 +65,13 @@ export default function ConfirmationPage() {
               className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
               placeholder="Northeastern University"
             ></input>
+            <Image
+              src="/icons/newwalk/stops.svg"
+              width={4}
+              height={44}
+              alt="stops"
+              className=" w-24"
+            />
             <input
               className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
               placeholder="New England Aquarium"
@@ -80,7 +87,7 @@ export default function ConfirmationPage() {
                 <input
                   type="number"
                   value={days}
-                  onChange={(e) => setDays(e.target.value)} 
+                  onChange={(e) => setDays(e.target.value)}
                   className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
                   placeholder="0"
                 />
@@ -96,7 +103,7 @@ export default function ConfirmationPage() {
                 <input
                   type="number"
                   value={hours}
-                  onChange={(e) => setHours(e.target.value)} 
+                  onChange={(e) => setHours(e.target.value)}
                   className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
                   placeholder="0"
                 />
@@ -112,7 +119,7 @@ export default function ConfirmationPage() {
               <div className="relative flex items-center space-x-2 w-1/3">
                 <input
                   type="number"
-                  onChange={(e) => setMinutes(e.target.value)} 
+                  onChange={(e) => setMinutes(e.target.value)}
                   value={minutes}
                   className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
                   placeholder="0"
@@ -129,7 +136,10 @@ export default function ConfirmationPage() {
           </div>
         </div>
       </div>
-      <button  onClick={() => router.push("/walking")} className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-moodwalk-green text-white py-3 w-80 rounded-xl z-20">
+      <button
+        onClick={() => router.push("/walking")}
+        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-moodwalk-green text-white py-3 w-80 rounded-xl z-20"
+      >
         Start Walk
       </button>
     </div>

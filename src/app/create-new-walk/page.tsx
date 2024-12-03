@@ -64,7 +64,7 @@ export default function NewWalkPage() {
               height={10}
               alt="Back Arrow"
             />
-            <span className="text-lg text-primary font-semibold">Cancel</span>
+            <span className="text-lg text-primary font-semibold">Back</span>
           </button>
           <h2 style={{ marginLeft: "70px" }} className=" font-bold">
             New Walk
