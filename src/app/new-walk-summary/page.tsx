@@ -14,10 +14,10 @@ export default function ConfirmationPage() {
     router.back();
   };
 
-  const handleConfirm = () => {
-    console.log("Confirming the walk...");
-    router.push("/walk-summary");
-  };
+  // const handleConfirm = () => {
+  //   console.log("Confirming the walk...");
+  //   router.push("/walk-summary");
+  // };
 
   return (
     <div>
@@ -80,6 +80,7 @@ export default function ConfirmationPage() {
                 <input
                   type="number"
                   value={days}
+                  onChange={(e) => setDays(e.target.value)} 
                   className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
                   placeholder="0"
                 />
@@ -95,6 +96,7 @@ export default function ConfirmationPage() {
                 <input
                   type="number"
                   value={hours}
+                  onChange={(e) => setHours(e.target.value)} 
                   className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
                   placeholder="0"
                 />
@@ -110,6 +112,7 @@ export default function ConfirmationPage() {
               <div className="relative flex items-center space-x-2 w-1/3">
                 <input
                   type="number"
+                  onChange={(e) => setMinutes(e.target.value)} 
                   value={minutes}
                   className={`h-12 text-2xl text-primary rounded-xl p-4 border-2 ${"border-gray-400"} focus:outline-none w-full text-center`}
                   placeholder="0"
@@ -126,7 +129,7 @@ export default function ConfirmationPage() {
           </div>
         </div>
       </div>
-      <button className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-moodwalk-green text-white py-3 w-80 rounded-xl z-20">
+      <button  onClick={() => router.push("/walking")} className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-moodwalk-green text-white py-3 w-80 rounded-xl z-20">
         Start Walk
       </button>
     </div>

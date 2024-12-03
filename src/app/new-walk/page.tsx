@@ -22,7 +22,10 @@ export default function NewWalkPage() {
 
   return (
     <div>
-      <div  style={{ marginTop: "-50px" }} className="flex flex-col items-center font-bold p-28 text-3xl mb-24">
+      <div
+        style={{ marginTop: "-50px" }}
+        className="flex flex-col items-center font-bold p-28 text-3xl mb-24"
+      >
         <div className="relative w-full flex items-center justify-center">
           <button
             onClick={handleCancel}
