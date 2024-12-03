@@ -33,9 +33,13 @@ export default function MapPage() {
       minZoom: 10,
     }).addTo(map);
 
-    // TO DO : add marker?
-    const marker = L.marker([42.3398, -71.0892]).addTo(map);
-    marker.bindPopup("<b>Start your walk!</b>").openPopup();
+    const circleMarker = L.circleMarker([42.3398, -71.0892], {
+      radius: 10, 
+      color: "#3388ff", 
+      fillColor: "#3388ff", 
+      fillOpacity: 0.8,
+    }).addTo(map);
+    
 
     return () => {
       if (map) {
