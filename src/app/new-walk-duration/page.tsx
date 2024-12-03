@@ -60,20 +60,18 @@ export default function NewWalkPage() {
                 placeholder="Northeastern University"
               ></input>
               <Image
-              src="/icons/newwalk/stops.svg"
-              width={4}
-              height={44}
-              alt="stops"
-              className=" w-24"
-            />
+                src="/icons/newwalk/stops.svg"
+                width={4}
+                height={30}
+                alt="stops"
+                className="w-12"
+              />
               <input
                 className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
                 placeholder="New England Aquarium"
               ></input>
               <div className="relative w-full flex items-start">
-                <button
-                  className="flex items-center space-x-2"
-                >
+                <button className="flex items-center space-x-2">
                   <Image
                     src="/icons/map/add-icon.svg"
                     width={20}

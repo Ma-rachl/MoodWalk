@@ -70,7 +70,7 @@ export default function ConfirmationPage() {
               width={4}
               height={44}
               alt="stops"
-              className=" w-24"
+              className="w-12"
             />
             <input
               className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
