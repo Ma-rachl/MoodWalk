@@ -30,7 +30,7 @@ export default function NewWalkPage() {
               height={10}
               alt="Back Arrow"
             />
-            <span className="text-lg text-primary font-semibold">Cancel</span>
+            <span className="text-lg text-primary font-semibold">Back</span>
           </button>
           <h2 style={{ marginLeft: "70px" }} className=" font-bold">
             New Walk
@@ -59,6 +59,13 @@ export default function NewWalkPage() {
                 className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
                 placeholder="Northeastern University"
               ></input>
+              <Image
+              src="/icons/newwalk/stops.svg"
+              width={4}
+              height={44}
+              alt="stops"
+              className=" w-24"
+            />
               <input
                 className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
                 placeholder="New England Aquarium"
