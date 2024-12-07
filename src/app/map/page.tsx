@@ -34,12 +34,11 @@ export default function MapPage() {
     }).addTo(map);
 
     const circleMarker = L.circleMarker([42.3398, -71.0892], {
-      radius: 10, 
-      color: "#3388ff", 
-      fillColor: "#3388ff", 
+      radius: 10,
+      color: "#3388ff",
+      fillColor: "#3388ff",
       fillOpacity: 0.8,
     }).addTo(map);
-    
 
     return () => {
       if (map) {
@@ -55,7 +54,7 @@ export default function MapPage() {
 
       <button
         className="absolute top-12 right-4 p-2 z-20"
-        onClick={() => console.log("Profile button clicked")}
+        onClick={() => router.push("/profile")}
       >
         <img
           src="/icons/map/mdi_user-circle.png"

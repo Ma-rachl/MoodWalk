@@ -2,6 +2,35 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+
+interface WalkDetails {
+  destination: string;
+  origin: string;
+  distance: number;
+  duration: string;
+}
+
+const walkDetails: WalkDetails[] = [
+  {
+    destination: "New England Aquarium",
+    origin: "Northeastern University",
+    distance: 3.5,
+    duration: "45",
+  },
+  {
+    destination: "Boston Common",
+    origin: "New England Aquarium",
+    distance: 1.2,
+    duration: "15",
+  },
+  {
+    destination: "Fenway Park",
+    origin: "Boston Common",
+    distance: 2.1,
+    duration: "30",
+  },
+];
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -16,72 +45,84 @@ export default function ProfilePage() {
   };
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center font-bold p-16 text-3xl">
-        <div className="relative w-full flex items-center justify-center">
-          <button
-            onClick={handleCancel}
-            className="flex items-center space-x-2 text-primary"
-            style={{ marginLeft: "-140px" }}
-          >
-            <Image
-              src="/icons/map/back-arrow.png"
-              width={10}
-              height={10}
-              alt="Back Arrow"
-            />
-            <span className="text-lg text-primary font-semibold">Back</span>
-          </button>
-          {/* <h2 style={{ marginLeft: "70px" }} className=" font-bold">
-            New Walk
-          </h2>
-        </div>
-        <p className="text-sm text-moodwalk-green">Add Stops</p> */}
+    <div className="mx-5">
+      <div className="flex flex-row justify-between mt-16">
+        <button
+          onClick={() => router.push("/map")}
+          className="flex items-center space-x-2 text-primary"
+        >
+          <Image
+            src="/icons/map/back-arrow.png"
+            width={10}
+            height={10}
+            alt="Back Arrow"
+          />
+          <span className="text-lg text-primary font-semibold">Back</span>
+        </button>
+        <Link href="/edit-profile">
+          <Image
+            src="/icons/profile/edit.svg"
+            width={18}
+            height={18}
+            alt="Edit Profile"
+          />
+        </Link>
+      </div>
+      <div className="flex flex-col justify-center items-center">
+        <Image
+          src="/icons/profile/pfp.svg"
+          width={120}
+          height={120}
+          alt="Profile Picture"
+        />
+        <h3 className="m-5 text-2xl font-bold">John Doe</h3>
       </div>
 
-      {/* <div className="flex justify-center  p-4 ">
+      <div>
+        <h1 className="text-xl font-bold">Past Walks</h1>
         <Image
-          src="/icons/map/small-map.png"
-          width={390}
-          height={200}
-          alt="Small Map"
-          className="rounded-lg"
+          src="/icons/profile/search_bar.svg"
+          width={350}
+          height={48}
+          alt="Search Bar"
+          className="w-full my-3"
         />
-      </div> */}
+      </div>
 
-      <div className="m-5 flex flex-col space-y-48">
-        <div>
-          <h1 className="text-xl font-bold">Where would you like to go?</h1>
-          <p className="mb-8 text-gray-400">Add all desired stops</p>
-          <div className="flex flex-col space-y-4">
-            <div className="flex flex-col space-y-4">
-              <input
-                className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
-                placeholder="Northeastern University"
-              ></input>
-              <input
-                className="h-12 rounded-xl p-4 border-2 border-gray-400 focus:outline-none focus:border-moodwalk-green focus:text-moodwalk-green"
-                placeholder="New England Aquarium"
-              ></input>
-              <div className="relative w-full flex items-start">
-                <button
-                  className="flex items-center space-x-2"
-                >
-                  <Image
-                    src="/icons/map/add-icon.svg"
-                    width={20}
-                    height={20}
-                    alt="Add Icon"
-                  />
-                  <span className="text-lg text-moodwalk-green font-semibold">
-                    Add stop
-                  </span>
-                </button>
-              </div>
+      {walkDetails.map((walk, index) => (
+        <div
+          key={index}
+          className="flex flex-row border-2 border-gray-300 rounded-2xl p-4 my-2"
+          onClick={() => router.push("/walk-summary ")}
+        >
+          <Image
+            src="/icons/profile/nea_preview.png"
+            width={68}
+            height={68}
+            alt="walk preview"
+            className="flex-none w-1/4"
+          />
+          <div className="flex-grow px-2">
+            <h1 className="text-xl font-bold">{walk.destination}</h1>
+            <p className="text-gray-400">from {walk.origin}</p>
+            <div className="flex flex-row space-x-16">
+              <p>
+                <span className="font-bold pr-1">{walk.distance}</span>mi
+              </p>
+              <p>
+                <span className="font-bold pr-1">{walk.duration}</span>min
+              </p>
             </div>
           </div>
+          <Image
+            src="/icons/profile/more_arrow.svg"
+            width={24}
+            height={24}
+            alt="More"
+            className="flex-none w-1/8"
+          />
         </div>
-      </div>
+      ))}
 
       <button
         // onClick={handleNewWalkLength}
@@ -92,4 +133,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
