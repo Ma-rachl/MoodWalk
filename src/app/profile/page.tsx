@@ -128,7 +128,7 @@ export default function ProfilePage() {
       ))}
 
       <button
-        // onClick={handleNewWalkLength}
+        onClick={() => router.push("/")}
         className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-moodwalk-green text-white py-3 w-80 rounded-xl z-20"
       >
         Log Out

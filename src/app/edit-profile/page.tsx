@@ -175,7 +175,7 @@ export default function EditProfilePage() {
         </div>
         <div className="space-y-4 pb-10">
           <button
-            // onClick={handleNewWalkLength}
+            onClick={() => router.push("/")}
             className=" bottom-16 bg-moodwalk-green text-white py-3 w-full rounded-xl z-20"
           >
             Log Out
