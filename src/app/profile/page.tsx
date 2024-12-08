@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-interface WalkDetails {
+export interface WalkDetails {
   destination: string;
   origin: string;
   distance: number;
@@ -35,8 +35,11 @@ const walkDetails: WalkDetails[] = [
 export default function ProfilePage() {
   const router = useRouter();
 
-  const handleCancel = () => {
-    router.back();
+  const handleWalkClick = (walk: WalkDetails) => {
+    const query = new URLSearchParams({
+      walk: JSON.stringify(walk),
+    }).toString();
+    router.push(`/past-walk-summary?${query}`);
   };
 
   const handleNewWalkLength = () => {
@@ -93,7 +96,7 @@ export default function ProfilePage() {
         <div
           key={index}
           className="flex flex-row border-2 border-gray-300 rounded-2xl p-4 my-2"
-          onClick={() => router.push("/walk-summary ")}
+          onClick={() => handleWalkClick(walk)}
         >
           <Image
             src="/icons/profile/nea_preview.png"
