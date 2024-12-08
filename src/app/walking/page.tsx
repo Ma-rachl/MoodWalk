@@ -155,12 +155,21 @@ export default function PullUpMenuPage() {
         </div>
       </animated.div>
 
-      <button
-        onClick={() => router.back()}
-        className="absolute top-4 left-4 bg-white text-black p-2 rounded-full shadow-md z-40"
-      >
-        Back
-      </button>
+      <div className="absolute top-4 w-full flex justify-between items-center px-4 z-40">
+        <button
+          onClick={() => router.back()}
+          className="bg-white text-black p-2 rounded-full shadow-md"
+        >
+          Back
+        </button>
+
+        <button
+          onClick={() => router.push("/rating")}
+          className="bg-red-500 text-white p-2 rounded-full shadow-md"
+        >
+          End Walk
+        </button>
+      </div>
     </div>
   );
 }
